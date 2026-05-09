@@ -1,13 +1,1 @@
-# smc-dom-bot Streamlit UI — packages.txt
-# For Streamlit Cloud (Ubuntu Linux).
-# 
-# No system packages required.
-# - streamlit, pandas, numpy, plotly, requests, httpx
-#   are all pure-Python or have pre-built wheels on PyPI.
-# - websocket-client is pure Python.
-#   No C extensions or external libs needed.
-#
-# If you add packages that require system libs later,
-# add them here (one per line), e.g.:
-#   libgomp1           # for XGBoost
-#   build-essential    # for compiling C extensions
+
