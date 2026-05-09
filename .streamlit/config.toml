@@ -1,0 +1,18 @@
+# smc-dom-bot Streamlit UI — config.toml
+# Theme, layout, and server settings for the dashboard.
+
+[theme]
+base = "dark"
+primaryColor = "#3b82f6"          # blue — matches trading dashboard aesthetic
+backgroundColor = "#0b0f19"       # dark navy background
+secondaryBackground = "#111827"   # card/panel backgrounds
+textColor = "#e2e8f0"            # light text
+
+[server]
+# Dev convenience: auto-reload on .py file changes
+runOnSave = true
+# Default port — change if it conflicts
+port = 8501
+
+[browser]
+gatherUsageStats = false
