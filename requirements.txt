@@ -1,21 +1,6 @@
-# ============================================================
-# smc-dom-bot Streamlit UI — requirements.txt
-# Target: Ubuntu Linux, Python 3.11 (Streamlit Cloud)
-# ============================================================
-
-# ── Core UI Framework ──
-streamlit>=1.35.0          # dashboard framework — multi-page, charts, widgets
-st-autorefresh>=1.0.1      # auto-refresh page every N seconds without reload
-
-# ── Data & Charts ──
-pandas>=2.2.0              # signal/DOM/account data tables
-numpy>=1.26.0              # numerical ops (required by pandas/plotly)
-plotly>=5.20.0             # interactive charts: candlestick, CVD, volume profile, DOM heatmap
-
-# ── API / Networking ──
-requests>=2.31.0           # synchronous HTTP calls to Flask bot API
-httpx>=0.27.0              # async HTTP alternative for concurrent endpoint polling
-websocket-client>=1.7.0    # optional WebSocket feed if Flask exposes one
-
-# ── Utilities ──
-python-dotenv>=1.0.1       # local .env loading for dev — Streamlit Cloud uses secrets
+streamlit>=1.35.0
+pandas>=2.2.0
+numpy>=1.26.0
+plotly>=5.20.0
+requests>=2.31.0
+python-dotenv>=1.0.1

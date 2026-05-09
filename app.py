@@ -7,9 +7,8 @@ and alert logs. Never modifies positions (except emergency close).
 Architecture: Streamlit UI → HTTP poll → Flask bot (activity_meter.py)
 """
 import streamlit as st
-import os
+import os, time
 from datetime import datetime
-from streamlit_autorefresh import st_autorefresh
 
 st.set_page_config(
     page_title="SMC DOM Bot",
@@ -24,9 +23,8 @@ from api.flask_client import (
     get_sessions, get_health, get_logs, close_all,
 )
 
-# ── Auto-refresh every 10 seconds ──
-REFRESH_MS = st.sidebar.slider("Refresh interval (s)", 5, 60, 10, 5) * 1000
-st_autorefresh(interval=REFRESH_MS, key="main_refresh")
+# ── Auto-refresh every N seconds ──
+REFRESH_SECS = st.sidebar.slider("Refresh interval (s)", 5, 60, 10, 5)
 
 # ═══ TOP BAR ═══
 col_l, col_m, col_r = st.columns([2, 1, 1])
@@ -225,6 +223,10 @@ with tab4:
 st.divider()
 col_f1, col_f2 = st.columns([3, 1])
 with col_f1:
-    st.caption(f"Flask API: {FLASK_API_URL} | Auto-refresh: {REFRESH_MS//1000}s | Last update: {datetime.now().strftime('%H:%M:%S')}")
+    st.caption(f"Flask API: {FLASK_API_URL} | Auto-refresh: {REFRESH_SECS}s | Last update: {datetime.now().strftime('%H:%M:%S')}")
 with col_f2:
     st.caption("Streamlit UI v1.0.0 | MIT License")
+
+# Auto-refresh using native Streamlit rerun
+time.sleep(REFRESH_SECS)
+st.rerun()
